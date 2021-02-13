@@ -1,8 +1,14 @@
 <?php
 
 use Illuminate\Support\Str;
-$DATABASE_URL = parse_url(env('DATABASE_URL'));
+// $DATABASE_URL = parse_url(env('DATABASE_URL'));
+// postgres://
 
+// användarnamn: ugmhptxmltyqsc
+// lösen: 0e1c896192cbf9ac9183f928a98a5722ad20e9c2cad3b8566117d8125cc9707e
+// host: ec2-3-211-245-154.compute-1.amazonaws.com
+// port: 5432
+// database: /d6gmsu9igard0b
 
 return [
 
@@ -67,12 +73,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => $DATABASE_URL['path'],
-            'host' => $DATABASE_URL['host'],
-            'port' => $DATABASE_URL['port'],
-            'database' => ltrim($DATABASE_URL['path'], '/'),
-            'username' => $DATABASE_URL['user'],
-            'password' => $DATABASE_URL['pass'],
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST'),
+            'port' => env('DB_PORT'),
+            'database' => env('DB_DATABASE'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
